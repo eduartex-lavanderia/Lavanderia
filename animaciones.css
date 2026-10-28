@@ -1,0 +1,600 @@
+html {
+  scroll-padding-top: 90px;
+  scrollbar-width: thin;
+  scrollbar-color: #164bdc #eaf0ff;
+}
+
+html.eduar-smooth {
+  scroll-behavior: auto;
+}
+
+::selection {
+  background: #164bdc;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eaf0ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #164bdc;
+  border-radius: 10px;
+  border: 2px solid #eaf0ff;
+}
+
+.eduar-messages {
+  overscroll-behavior: contain;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.eduar-cursor,
+  html.eduar-cursor * {
+    cursor: none !important;
+  }
+}
+
+.eduar-cursor-dot,
+.eduar-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+
+  transition: opacity 0.25s, width 0.25s, height 0.25s, background 0.25s,
+    border-color 0.25s, border-radius 0.25s;
+}
+
+.eduar-cursor-dot {
+  width: 10px;
+  height: 10px;
+  background: #164bdc;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(10, 30, 90, 0.35);
+}
+
+.eduar-cursor-ring {
+  width: 38px;
+  height: 38px;
+  border: 2px solid rgba(22, 75, 220, 0.6);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+html.eduar-cursor-on .eduar-cursor-dot,
+html.eduar-cursor-on .eduar-cursor-ring {
+  opacity: 1;
+}
+
+html.eduar-cursor-hover .eduar-cursor-ring {
+  width: 58px;
+  height: 58px;
+  border-color: #164bdc;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+html.eduar-cursor-hover .eduar-cursor-dot {
+  width: 6px;
+  height: 6px;
+}
+
+html.eduar-cursor-down .eduar-cursor-ring {
+  width: 26px;
+  height: 26px;
+  background: rgba(22, 75, 220, 0.25);
+}
+
+html.eduar-cursor-text .eduar-cursor-ring {
+  opacity: 0;
+}
+
+html.eduar-cursor-text .eduar-cursor-dot {
+  width: 4px;
+  height: 26px;
+  border-radius: 3px;
+}
+
+.eduar-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(90deg, #164bdc, #3fa7ff);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+.header {
+  transition: box-shadow 0.3s;
+}
+
+.header.eduar-scrolled {
+  box-shadow: 0 8px 28px rgba(16, 25, 54, 0.08);
+}
+
+.logo img {
+  transition: transform 0.3s;
+}
+
+.logo:hover img {
+  transform: scale(1.04);
+}
+
+.navbar a {
+  position: relative;
+  padding: 6px 0;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+
+  background: var(--color-tertiary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.navbar a:hover::after,
+.navbar a.eduar-active::after {
+  transform: scaleX(1);
+}
+
+.navbar a.eduar-active {
+  color: var(--color-tertiary);
+}
+
+.header-button,
+.primary-button,
+.secondary-button,
+.order-button,
+.cta-button,
+.cotizar-button,
+.see-prices {
+  position: relative;
+  overflow: hidden;
+}
+
+.header-button,
+.primary-button,
+.secondary-button {
+  display: inline-block;
+}
+
+.header-button,
+.primary-button,
+.secondary-button,
+.order-button,
+.cta-button,
+.cotizar-button,
+.see-prices {
+  transition: transform 0.2s, background 0.2s, box-shadow 0.25s, color 0.2s;
+}
+
+.header-button:hover,
+.primary-button:hover,
+.order-button:hover,
+.cotizar-button:hover {
+  box-shadow: 0 10px 22px rgba(26, 127, 55, 0.3);
+}
+
+.secondary-button:hover,
+.see-prices:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(26, 127, 55, 0.15);
+  border-color: var(--color-tertiary);
+  color: var(--color-tertiary);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(26, 127, 55, 0.35);
+}
+
+.header-button:active,
+.primary-button:active,
+.secondary-button:active,
+.order-button:active,
+.cta-button:active,
+.cotizar-button:active,
+.see-prices:active {
+  transform: scale(0.96);
+}
+
+.eduar-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.25;
+  transform: scale(0);
+  pointer-events: none;
+  animation: eduar-ripple 0.6s ease-out forwards;
+}
+
+@keyframes eduar-ripple {
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.order-card label {
+  transition: transform 0.2s, color 0.2s;
+}
+
+.order-card label:hover {
+  transform: translateX(4px);
+  color: #164bdc;
+}
+
+.address-input {
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.address-input:focus {
+  box-shadow: 0 0 0 4px rgba(22, 75, 220, 0.15);
+}
+
+.price-card {
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.price-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(20, 60, 140, 0.14);
+  border-color: #164bdc;
+}
+
+.number {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.step:hover .number {
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(22, 75, 220, 0.35);
+}
+
+.service-icon {
+  transition: transform 0.3s;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.2) rotate(-6deg);
+}
+
+.benefit span {
+  transition: transform 0.25s;
+}
+
+.benefit:hover span {
+  transform: scale(1.18) rotate(8deg);
+}
+
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  list-style: none;
+  transition: color 0.2s;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:hover {
+  color: var(--color-tertiary);
+}
+
+summary::after {
+  content: "+";
+  flex-shrink: 0;
+
+  color: #164bdc;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1;
+
+  transition: transform 0.35s;
+}
+
+details.eduar-open summary::after {
+  transform: rotate(135deg);
+}
+
+details[open] p {
+  animation: eduar-fade 0.45s ease both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    animation: eduar-fade 0.6s ease both;
+  }
+
+  .hero-content > .tag,
+  .hero-content > h1 {
+    animation: eduar-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .hero-content > .tag {
+    animation-delay: 0.1s;
+  }
+  .hero-content > h1 {
+    animation-delay: 0.22s;
+  }
+
+  .clothes-background {
+    animation: eduar-zoom 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+  }
+
+  .clothes {
+    animation:
+      eduar-build 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+      eduar-sway 6s ease-in-out infinite alternate;
+  }
+
+  .clothes:nth-child(1) {
+    animation-delay: 0.2s, -1s;
+  }
+  .clothes:nth-child(2) {
+    animation-delay: 0.4s, -1.8s;
+  }
+  .clothes:nth-child(3) {
+    animation-delay: 0.6s, -2.6s;
+  }
+  .clothes:nth-child(4) {
+    animation-delay: 0.8s, -3.4s;
+  }
+  .clothes:nth-child(5) {
+    animation-delay: 1s, -4.2s;
+  }
+  .clothes:nth-child(6) {
+    animation-delay: 1.2s, -5s;
+  }
+
+  .delivery-bag {
+    animation: eduar-bob 3.2s ease-in-out infinite;
+  }
+
+  .popular {
+    animation: eduar-glow 2.4s ease-in-out infinite;
+  }
+
+  .step.eduar-in .number {
+    animation: eduar-pop 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.3) 0.15s both;
+  }
+
+  .steps.steps-ready .step {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.55s ease, transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .steps.steps-ready .step.step-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .steps.steps-ready .step .number {
+    opacity: 0;
+    transform: perspective(600px) rotateX(-90deg) scale(0.85);
+    transform-origin: center bottom;
+    transition: opacity 0.45s ease,
+      transform 0.75s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  }
+
+  .steps.steps-ready .step.step-visible .number {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg) scale(1);
+  }
+
+  .steps.steps-ready .step:hover .number {
+    transform: scale(1.08);
+  }
+
+  .eduar-reveal {
+    opacity: 0;
+    transform: translateY(34px);
+
+    transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--eduar-delay, 0ms);
+  }
+
+  .eduar-reveal--zoom {
+    transform: scale(0.94);
+  }
+
+  .eduar-reveal.eduar-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes eduar-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes eduar-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes eduar-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes eduar-card {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-50% + 36px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes eduar-build {
+  from {
+    opacity: 0;
+    translate: -80px 0;
+    scale: 0.3 1;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1 1;
+  }
+}
+
+@keyframes eduar-sway {
+  from {
+    transform: translateX(-26px);
+  }
+  to {
+    transform: translateX(26px);
+  }
+}
+
+@keyframes eduar-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+@keyframes eduar-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 75, 220, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(22, 75, 220, 0);
+  }
+}
+
+@keyframes eduar-pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =====================================================
+   ANIMACIONES ACTIVADAS POR SCROLL PARA ELEMENTOS GIF
+===================================================== */
+
+.gif-scroll-item {
+  --gif-ty: 0px;
+  --gif-rx: 0deg;
+  --gif-scale: 1;
+  transform: perspective(1000px) translateY(var(--gif-ty)) rotateX(var(--gif-rx)) scale(var(--gif-scale));
+  transition: transform 0.26s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+/* Efecto de destello (shimmer) que se dispara al entrar en vista */
+.eduar-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.eduar-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.32) 50%,
+    transparent 85%
+  );
+  transform: translateX(-140%);
+  transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.eduar-stage.gif-in-view::after {
+  transform: translateX(140%);
+}
+
+.eduar-stage.gif-in-view {
+  box-shadow: 0 24px 50px rgba(22, 75, 220, 0.28), 0 0 28px rgba(63, 167, 255, 0.2);
+  animation: eduar-gif-ambient 4.8s ease-in-out infinite;
+}
+
+@keyframes eduar-gif-ambient {
+  0%, 100% {
+    transform: perspective(1000px) translateY(var(--gif-ty)) rotateX(var(--gif-rx)) scale(var(--gif-scale));
+  }
+  50% {
+    transform: perspective(1000px) translateY(calc(var(--gif-ty) - 8px)) rotateX(var(--gif-rx)) scale(var(--gif-scale));
+  }
+}
+
+.eduar-stage:hover {
+  transform: perspective(1000px) translateY(calc(var(--gif-ty) - 8px)) scale(1.02);
+  box-shadow: 0 28px 60px rgba(22, 75, 220, 0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gif-scroll-item {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .eduar-stage::after {
+    display: none;
+  }
+}
+

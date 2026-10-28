@@ -1,0 +1,27 @@
+{
+  "servicios": [
+    {
+      "nombre": "Lavado y secado",
+      "descripcion": "Lavamos y secamos tus prendas con cuidado y calidad.",
+      "icono": "🧺"
+    },
+    {
+      "nombre": "Planchado",
+      "descripcion": "Dejamos tus prendas listas, organizadas y presentables.",
+      "icono": "👕"
+    },
+    {
+      "nombre": "Prendas especiales",
+      "descripcion": "Cuidado especial para prendas delicadas y especiales.",
+      "icono": "✨"
+    },
+    {
+      "nombre": "Calzado",
+      "descripcion": "Limpieza y cuidado para tus zapatos y calzado.",
+      "icono": "👟"
+    }
+  ],
+  "dependencies": {
+    "3": "2.1.0"
+  }
+}

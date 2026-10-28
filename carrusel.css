@@ -1,0 +1,394 @@
+/* =====================================================
+   CARRUSEL INTERACTIVO EDUARTEX - CUIDADO DE PRENDAS
+===================================================== */
+
+.eduar-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.eduar-carousel:focus-visible {
+  outline: 3px solid var(--color-primary, #164bdc);
+  outline-offset: 4px;
+  border-radius: 28px;
+}
+
+/* Encabezado del carrusel */
+.eduar-carousel-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.eduar-carousel-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(22, 75, 220, 0.08);
+  border: 1px solid rgba(22, 75, 220, 0.2);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-primary, #164bdc);
+  backdrop-filter: blur(8px);
+}
+
+.eduar-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-tertiary, #1a7f37);
+  box-shadow: 0 0 0 0 rgba(26, 127, 55, 0.5);
+  animation: eduar-dot-pulse 2s infinite;
+}
+
+@keyframes eduar-dot-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(26, 127, 55, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(26, 127, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(26, 127, 55, 0);
+  }
+}
+
+/* Escenario / Card del GIF */
+.eduar-stage {
+  position: relative;
+
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 4.9;
+
+  border-radius: 26px;
+  overflow: hidden;
+  isolation: isolate;
+  touch-action: pan-y;
+
+  background: #0d1a36;
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 45px rgba(22, 75, 220, 0.22), 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+}
+
+/* Slide individual */
+.eduar-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.03);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s 0.7s;
+}
+
+.eduar-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s;
+}
+
+/* Imagen GIF */
+.eduar-slide-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Pastilla superior del slide */
+.eduar-slide-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: 20px;
+
+  background: rgba(14, 25, 55, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Caption inferior con gradiente oscuro suave */
+.eduar-slide-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 38px 20px 20px;
+
+  color: #ffffff;
+  background: linear-gradient(
+    to top,
+    rgba(10, 20, 48, 0.94) 0%,
+    rgba(10, 20, 48, 0.78) 55%,
+    rgba(10, 20, 48, 0) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eduar-caption-badge {
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8ac0ff;
+  background: rgba(22, 75, 220, 0.35);
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+}
+
+.eduar-caption-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.eduar-caption-desc {
+  font-size: 12px;
+  color: #d8e6ff;
+  line-height: 1.45;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Fallback si el GIF no carga */
+.eduar-slide-fallback {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 80px;
+  background: linear-gradient(135deg, #164bdc, #3fa7ff);
+}
+
+/* Flechas de navegación */
+.eduar-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-primary, #164bdc);
+  cursor: pointer;
+
+  opacity: 0.85;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 14px rgba(10, 30, 90, 0.28);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition: opacity 0.2s, transform 0.2s, background 0.2s, color 0.2s;
+}
+
+.eduar-arrow svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.eduar-arrow.prev {
+  left: 10px;
+}
+.eduar-arrow.next {
+  right: 10px;
+}
+
+.eduar-stage:hover .eduar-arrow,
+.eduar-arrow:focus-visible {
+  opacity: 1;
+}
+
+.eduar-arrow:hover {
+  background: #ffffff;
+  color: var(--color-primary, #164bdc);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 18px rgba(10, 30, 90, 0.35);
+}
+
+.eduar-arrow:focus-visible,
+.eduar-dot:focus-visible {
+  outline: 3px solid #164bdc;
+  outline-offset: 2px;
+}
+
+/* Barra inferior de controles (contador + dots) */
+.eduar-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 380px;
+  padding: 4px 6px;
+}
+
+.eduar-counter {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text, #101936);
+  letter-spacing: 0.5px;
+}
+
+.eduar-counter .eduar-curr {
+  color: var(--color-primary, #164bdc);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.eduar-counter .eduar-sep {
+  margin: 0 3px;
+  color: #9cb1d6;
+}
+
+.eduar-counter .eduar-total {
+  color: #7a8aa8;
+}
+
+.eduar-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.eduar-dot {
+  position: relative;
+
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+
+  background: #c7d8f7;
+  cursor: pointer;
+
+  transition: width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.35s;
+}
+
+.eduar-dot.is-active {
+  width: 32px;
+}
+
+.eduar-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: var(--color-primary, #164bdc);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.eduar-dot.is-active::after {
+  animation: eduar-dotfill var(--intervalo, 4800ms) linear forwards;
+}
+
+.eduar-carousel.is-paused .eduar-dot.is-active::after {
+  animation-play-state: paused;
+}
+
+@keyframes eduar-dotfill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Dispositivos móviles */
+@media (max-width: 600px) {
+  .eduar-carousel {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .eduar-stage {
+    max-width: 100%;
+    aspect-ratio: 4 / 4.7;
+    border-radius: 22px;
+  }
+
+  .eduar-slide-caption {
+    padding: 30px 16px 16px;
+  }
+
+  .eduar-caption-title {
+    font-size: 15px;
+  }
+
+  .eduar-caption-desc {
+    font-size: 11px;
+  }
+
+  .eduar-arrow {
+    width: 34px;
+    height: 34px;
+    opacity: 0.95;
+  }
+}
+
+/* Con "reducir movimiento" */
+@media (prefers-reduced-motion: reduce) {
+  .eduar-dot.is-active::after {
+    animation: none;
+    transform: scaleX(1);
+  }
+
+  .eduar-slide,
+  .eduar-slide.is-active,
+  .eduar-slide-img {
+    transition: none;
+    transform: none;
+  }
+}

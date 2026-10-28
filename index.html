@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Lavaseco EDUARTEX | Lavado de Calidad</title>
+
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <meta name="theme-color" content="#164bdc" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="chatbot.css" />
+    <link rel="stylesheet" href="animaciones.css" />
+    <link rel="stylesheet" href="carrusel.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800;900&family=Sora:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="chatbot.js" defer></script>
+    <script src="animaciones.js" defer></script>
+    <script src="carrusel.js" defer></script>
+  </head>
+
+  <body>
+    <!-- =====================================================
+       ENCABEZADO
+  ====================================================== -->
+
+    <header class="header">
+      <a href="#inicio" class="logo">
+        <img
+          id="logo-nav"
+          src="logo.gif"
+          data-logo-fijo="logo.png"
+          alt="Lavaseco EDUARTEX - Lavado de Calidad"
+        />
+      </a>
+
+      <nav class="navbar">
+        <a href="#inicio">Inicio</a>
+
+        <a href="#funciona">¿Cómo funciona?</a>
+
+        <a href="#servicios">Servicios</a>
+
+        <a href="#precios">Precios</a>
+
+        <a href="#preguntas">Preguntas frecuentes</a>
+
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+
+      <a
+        href="#"
+        class="header-button"
+        onclick="irWhatsApp('Hola, quiero solicitar un servicio de Lavaseco EDUARTEX.')"
+      >
+        Solicitar servicio
+      </a>
+    </header>
+
+    <!-- =====================================================
+       INICIO
+  ====================================================== -->
+
+    <main id="inicio">
+      <section class="hero">
+        <!-- TEXTO -->
+
+        <div class="hero-content">
+          <span class="tag"> LAVANDERÍA A DOMICILIO </span>
+
+          <h1>
+            <span class="typing-line" data-typing="Tu ropa limpia,"></span>
+            <br />
+            <span
+              class="typing-line typing-accent"
+              data-typing="sin salir de casa"
+            ></span>
+          </h1>
+
+          <p class="typing-pending">
+            Recogemos, lavamos, secamos y entregamos tu ropa directamente en tu
+            puerta.
+          </p>
+
+          <div class="hero-buttons typing-pending">
+            <a
+              href="#"
+              class="primary-button"
+              onclick="irWhatsApp('Hola, quiero solicitar un servicio de Lavaseco EDUARTEX.')"
+            >
+              Solicitar servicio
+            </a>
+
+            <a href="#precios" class="secondary-button"> Ver precios </a>
+          </div>
+        </div>
+
+        <!-- IMAGEN / TARJETA DERECHA -->
+
+        <div class="hero-image-area">
+          <div class="clothes-background">
+            <div class="clothes blue"></div>
+            <div class="clothes white"></div>
+            <div class="clothes dark"></div>
+            <div class="clothes blue"></div>
+            <div class="clothes white"></div>
+            <div class="clothes dark"></div>
+          </div>
+
+          <div class="order-card typing-pending">
+            <h3>¿Qué necesitas?</h3>
+
+            <label>
+              <input type="radio" name="service" value="Lavado" checked />
+
+              Lavado
+            </label>
+
+            <label>
+              <input type="radio" name="service" value="Lavado + secado" />
+
+              Lavado + secado
+            </label>
+
+            <label>
+              <input type="radio" name="service" value="Planchado" />
+
+              Planchado
+            </label>
+
+            <label>
+              <input type="radio" name="service" value="Prendas especiales" />
+
+              Prendas especiales
+            </label>
+
+            <h4>Tu dirección</h4>
+
+            <input
+              type="text"
+              id="direccion"
+              class="address-input"
+              placeholder="Ingresa tu dirección"
+              aria-required="true"
+              oninput="limpiarAvisoDomicilio()"
+            />
+
+            <p
+              class="order-aviso"
+              id="order-aviso"
+              role="alert"
+              aria-live="assertive"
+              hidden
+            >
+              Ingresa tu dirección antes de pedir el domicilio.
+            </p>
+
+            <button class="order-button" onclick="pedirDomicilio()">
+              Pedir domicilio
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         ¿CÓMO FUNCIONA?
+    ====================================================== -->
+
+      <section id="funciona" class="section">
+        <div class="section-title">
+          <h2>¿Cómo funciona?</h2>
+
+          <div class="blue-line"></div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="number">01</div>
+
+            <h3>Agenda</h3>
+
+            <p>Elige el día y la hora en que pasaremos por tu ropa.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">02</div>
+
+            <h3>Recogemos</h3>
+
+            <p>Nuestro domiciliario pasa por tu dirección y recoge tu ropa.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">03</div>
+
+            <h3>Lavamos</h3>
+
+            <p>Lavamos y secamos tu ropa con productos de calidad.</p>
+          </div>
+
+          <div class="step">
+            <div class="number">04</div>
+
+            <h3>Entregamos</h3>
+
+            <p>Te entregamos tu ropa limpia, doblada y lista para usar.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         SERVICIOS
+    ====================================================== -->
+
+      <section id="servicios" class="services-section">
+        <div class="section-title">
+          <h2>Nuestros servicios y precios</h2>
+
+          <div class="blue-line"></div>
+        </div>
+
+        <div id="services-container" class="services-photo-gallery"></div>
+
+        <a href="#precios" class="see-prices"> Ver todos los precios </a>
+      </section>
+
+      <!-- =====================================================
+          PRECIOS
+     ====================================================== -->
+
+      <section id="precios" class="prices-section">
+        <div class="section-title">
+          <h2>Simula tu servicio</h2>
+
+          <div class="blue-line"></div>
+
+          <p>
+            Busca tus prendas, arma tu pedido y mira el precio estimado al
+            instante.
+          </p>
+        </div>
+
+        <div class="price-simulator">
+          <div class="sim-panel">
+            <div class="sim-step-label">1. Busca y agrega tus prendas</div>
+
+            <div class="sim-search">
+              <input
+                type="search"
+                id="sim-buscar"
+                placeholder="Buscar prenda (ej. camisa, cobija, vestido...)"
+                aria-label="Buscar prenda"
+              />
+            </div>
+
+            <div id="sim-categorias" class="sim-categorias"></div>
+
+            <div id="sim-catalogo" class="sim-catalogo"></div>
+          </div>
+
+          <div class="sim-summary">
+            <span class="sim-badge">Tu cotización</span>
+
+            <div id="sim-carrito" class="sim-carrito">
+              <p class="sim-vacio">
+                Aún no has agregado prendas. Toca una prenda del catálogo para
+                cotizar.
+              </p>
+            </div>
+
+            <div class="sim-total-row">
+              <span>Total estimado</span>
+              <div class="sim-total" id="sim-total">$0 COP</div>
+            </div>
+
+            <p class="sim-detail" id="sim-detalle">
+              Entrega estimada: — días
+            </p>
+
+            <div class="sim-breakdown" id="sim-breakdown"></div>
+
+            <a
+              href="#"
+              class="sim-cta"
+              id="sim-cta"
+              onclick="solicitarCotizacion(event)"
+            >
+              Solicitar cotización en el chat
+            </a>
+
+            <p
+              class="sim-aviso"
+              id="sim-aviso"
+              role="alert"
+              aria-live="assertive"
+              hidden
+            >
+              Selecciona al menos un producto antes de solicitar tu cotización.
+            </p>
+
+            <p class="sim-note">
+              Los valores son estimados y pueden variar según el estado de las
+              prendas. Los artículos de cortesía no tienen costo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+          CALIDAD Y CONFIANZA
+     ====================================================== -->
+
+      <section class="trust-section" id="confianza">
+        <div class="trust-image" id="carrusel-confianza">
+          <!-- El carrusel interactivo con imágenes del proceso de lavandería se inserta aquí dinámicamente -->
+        </div>
+
+        <div class="trust-content">
+          <span class="tag"> TU ROPA ESTÁ EN BUENAS MANOS </span>
+
+          <h2>
+            Calidad, confianza
+            <br />
+            y comodidad.
+          </h2>
+
+          <p class="trust-description">
+            Cuidamos cada prenda con procesos especializados: selección por tipo de tejido, lavado profundo, secado controlado y planchado impecable para que disfrutes tu ropa como nueva sin salir de casa.
+          </p>
+
+          <div class="benefits">
+            <div class="benefit">
+              <span>✓</span>
+              Productos de alta calidad
+            </div>
+
+            <div class="benefit">
+              <span>✓</span>
+              Entrega puntual
+            </div>
+
+            <div class="benefit">
+              <span>✓</span>
+              Personal capacitado
+            </div>
+
+            <div class="benefit">
+              <span>✓</span>
+              Satisfacción garantizada
+            </div>
+
+            <div class="benefit">
+              <span>✓</span>
+              Seguimiento en tiempo real
+            </div>
+
+            <div class="benefit">
+              <span>✓</span>
+              Pago 100% seguro
+            </div>
+          </div>
+
+          <div class="trust-action">
+            <a
+              href="#"
+              class="primary-button"
+              onclick="irWhatsApp('Hola, quiero confiar mi ropa a Lavaseco EDUARTEX. ¿Cómo puedo empezar?')"
+            >
+              Cuidar mi ropa hoy
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+      <section class="cta">
+        <div class="cta-content">
+          <h2>Haz tu vida más fácil.</h2>
+
+          <p>Nosotros lavamos por ti.</p>
+
+          <button
+            class="cta-button"
+            onclick="irWhatsApp('Hola, quiero solicitar un servicio de Lavaseco EDUARTEX.')"
+          >
+            Solicitar servicio por WhatsApp
+          </button>
+        </div>
+
+        <div class="cta-benefits">
+          <div>
+            <strong>✓</strong>
+
+            <span>
+              Fácil y rápido
+              <br />
+              Pide en minutos
+            </span>
+          </div>
+
+          <div>
+            <strong>✓</strong>
+
+            <span>
+              Sin filas ni esperas
+              <br />
+              Nosotros vamos por ti
+            </span>
+          </div>
+
+          <div>
+            <strong>✓</strong>
+
+            <span>
+              Ropa impecable
+              <br />
+              Como debe ser
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+         PREGUNTAS FRECUENTES
+    ====================================================== -->
+
+      <section id="preguntas" class="faq-location-section">
+        <div class="section-title">
+          <h2>Preguntas frecuentes y Ubicación</h2>
+          <div class="blue-line"></div>
+          <p>Resolvemos tus dudas habituales y te mostramos cómo encontrarnos o solicitar tu servicio.</p>
+        </div>
+
+        <div class="faq-location-grid">
+          <!-- COLUMNA PREGUNTAS FRECUENTES -->
+          <div class="faq-column">
+            <div class="column-header">
+              <span class="column-badge">FAQ</span>
+              <h3>Preguntas frecuentes</h3>
+            </div>
+
+            <div class="faq">
+              <details>
+                <summary>¿Cómo solicito el servicio?</summary>
+                <p>
+                  Puedes solicitar el servicio directamente por WhatsApp y coordinar la recogida en minutos.
+                </p>
+              </details>
+
+              <details>
+                <summary>¿Recogen la ropa en mi casa?</summary>
+                <p>
+                  Sí. Coordinamos contigo el día y la hora para recoger y entregar tus prendas directamente en tu puerta.
+                </p>
+              </details>
+
+              <details>
+                <summary>¿Cómo puedo conocer el precio?</summary>
+                <p>
+                  Escríbenos por WhatsApp con los tipos de prendas o peso estimado y te enviaremos una cotización inmediata.
+                </p>
+              </details>
+
+              <details>
+                <summary>¿Cuáles son los medios de pago?</summary>
+                <p>
+                  Aceptamos transferencias electrónicas, Nequi, Daviplata y pago en efectivo al momento de la entrega.
+                </p>
+              </details>
+            </div>
+          </div>
+
+          <!-- COLUMNA UBICACIÓN Y MAPA -->
+          <div id="ubicacion" class="location-column">
+            <div class="column-header">
+              <span class="column-badge">Punto Físico</span>
+              <h3>Nuestra ubicación</h3>
+            </div>
+
+            <div class="location-info-pills">
+              <div class="location-pill">
+                <strong>📍 Dirección:</strong>
+                <span>Cra. 105 #65-17, Engativá, Bogotá, D.C.</span>
+              </div>
+              <div class="location-pill">
+                <strong>🕒 Horario:</strong>
+                <span>Lunes a Sábado: 8:00 a.m. - 7:00 p.m.</span>
+              </div>
+              <div class="location-pill">
+                <strong>🛵 Cobertura:</strong>
+                <span>Servicio a domicilio en Engativá y zonas aledañas</span>
+              </div>
+            </div>
+
+            <div class="location-map-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.511846607884!2d-74.1273632!3d4.6979503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ca808629e1d%3A0xf86a0fba7d1fce7a!2sCra.%20105%20%2365-17%2C%20Engativ%C3%A1%2C%20Bogot%C3%A1%2C%20D.C.%2C%20Colombia!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
+                width="100%"
+                height="320"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación Lavaseco EDUARTEX"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+       FOOTER
+   ====================================================== -->
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <span class="footer-logo-wrap">
+            <img
+              src="https://i.ibb.co/bgTTvpgc/image.png"
+              alt="Lavaseco EDUARTEX - Lavado de Calidad"
+            />
+          </span>
+
+          <p class="footer-tagline">
+            Tu ropa limpia, sin salir de casa. Recogemos, lavamos y entregamos
+            directamente en tu puerta.
+          </p>
+
+          <div class="footer-social">
+            <a
+              href="https://wa.me/573118690495"
+              target="_blank"
+              rel="noopener"
+              aria-label="WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.13-2.9-7A9.83 9.83 0 0 0 12.04 2Zm0 1.8c2.16 0 4.19.84 5.72 2.37a8.06 8.06 0 0 1 2.37 5.73c0 4.47-3.64 8.1-8.11 8.1a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.14.82.84-3.06-.19-.31a8.03 8.03 0 0 1-1.24-4.32c0-4.47 3.64-8.1 8.18-8.1Zm-2.5 4.06c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.16 2.95c.14.19 2 3.05 4.84 4.28.68.29 1.2.46 1.62.59.68.22 1.3.19 1.79.11.55-.08 1.68-.69 1.92-1.35.24-.66.24-1.22.17-1.34-.07-.12-.26-.19-.55-.34-.29-.14-1.68-.83-1.94-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.9 1.11-.17.19-.33.22-.62.07-.29-.14-1.21-.45-2.31-1.42-.85-.76-1.43-1.7-1.59-1.99-.17-.29-.02-.45.12-.59.13-.13.29-.33.43-.5.14-.16.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.87-2.11-.23-.55-.46-.48-.64-.48-.17 0-.36-.02-.55-.02Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/lavaseco_eduartex?mdxt=MXhvY2hzZnNpbTR6Zg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.62c-3.15 0-3.52.01-4.76.07-.98.04-1.5.21-1.86.35-.47.18-.8.4-1.15.74-.34.35-.56.68-.74 1.15-.14.36-.31.88-.35 1.86-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.04.98.21 1.5.35 1.86.18.47.4.8.74 1.15.35.34.68.56 1.15.74.36.14.88.31 1.86.35 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c.98-.04 1.5-.21 1.86-.35.47-.18.8-.4 1.15-.74.34-.35.56-.68.74-1.15.14-.36.31-.88.35-1.86.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.04-.98-.21-1.5-.35-1.86a3.1 3.1 0 0 0-.74-1.15 3.1 3.1 0 0 0-1.15-.74c-.36-.14-.88-.31-1.86-.35-1.24-.06-1.61-.07-4.76-.07Zm0 2.76a5.42 5.42 0 1 1 0 10.84 5.42 5.42 0 0 1 0-10.84Zm0 1.62a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Zm5.63-1.99a1.27 1.27 0 1 1 0 2.54 1.27 1.27 0 0 1 0-2.54Z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.tiktok.com/@lavaseco_eduartex?_r=1&amp;_t=ZS-9AhK7YFBbIC"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explora</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#funciona">¿Cómo funciona?</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#servicios">Lavado y secado</a></li>
+            <li><a href="#servicios">Planchado profesional</a></li>
+            <li><a href="#servicios">Lavaseco y prendas delicadas</a></li>
+            <li><a href="#servicios">Hogar y lencería</a></li>
+            <li><a href="#servicios">Cuidado de calzado</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h4>Contacto</h4>
+          <ul>
+            <li>
+              <span class="footer-ico">📍</span>
+              Cra. 105 #65-17, Engativá, Bogotá D.C.
+            </li>
+            <li>
+              <span class="footer-ico">🕒</span>
+              Lun a Sáb: 8:00 a.m. - 7:00 p.m.
+            </li>
+            <li>
+              <span class="footer-ico">💬</span>
+              <a href="https://wa.me/573118690495" class="footer-link"
+                >WhatsApp: +57 311 869 0495</a
+              >
+            </li>
+          </ul>
+
+          <a
+            href="#"
+            class="footer-cta"
+            onclick="irWhatsApp('Hola, quiero solicitar un servicio de Lavaseco EDUARTEX.')"
+          >
+            Solicitar servicio
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Lavaseco EDUARTEX. Todos los derechos reservados.</p>
+
+        <div class="footer-bottom-links">
+          <a href="#">Política de privacidad</a>
+          <span aria-hidden="true">•</span>
+          <a href="#">Términos y condiciones</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+    <script>
+      /* =====================================================
+       WHATSAPP
+    ====================================================== */
+
+      const WHATSAPP = "573118690495";
+
+      /* =====================================================
+       ABRIR WHATSAPP
+    ====================================================== */
+
+      function irWhatsApp(mensaje) {
+        const url =
+          "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensaje);
+
+        window.open(url, "_blank");
+      }
+
+      /* =====================================================
+       COTIZAR
+    ====================================================== */
+
+      function cotizar(servicio) {
+        const mensaje =
+          "Hola, quiero cotizar el servicio de " +
+          servicio +
+          " en Lavaseco EDUARTEX. ¿Podrían indicarme el precio para este servicio?";
+
+        irWhatsApp(mensaje);
+      }
+
+      /* =====================================================
+       SOLICITAR SERVICIO
+    ====================================================== */
+
+      function solicitarServicio(servicio) {
+        const mensaje =
+          "Hola, quiero solicitar el servicio de " +
+          servicio +
+          " en Lavaseco EDUARTEX. ¿Me ayudan a agendar la recogida de mi ropa?";
+
+        irWhatsApp(mensaje);
+      }
+
+      /* =====================================================
+       PEDIR DOMICILIO
+    ====================================================== */
+
+      function mostrarAvisoDomicilio() {
+        const aviso = document.getElementById("order-aviso");
+        const input = document.getElementById("direccion");
+        const boton = document.querySelector(".order-button");
+
+        if (aviso) aviso.hidden = false;
+
+        if (input) {
+          input.classList.add("is-invalid");
+          input.setAttribute("aria-invalid", "true");
+          input.focus();
+        }
+
+        if (boton) {
+          boton.classList.remove("is-invalid");
+          void boton.offsetWidth;
+          boton.classList.add("is-invalid");
+          boton.addEventListener(
+            "animationend",
+            function () {
+              boton.classList.remove("is-invalid");
+            },
+            { once: true }
+          );
+        }
+      }
+
+      function limpiarAvisoDomicilio() {
+        const aviso = document.getElementById("order-aviso");
+        const input = document.getElementById("direccion");
+
+        if (aviso) aviso.hidden = true;
+        if (input) {
+          input.classList.remove("is-invalid");
+          input.removeAttribute("aria-invalid");
+        }
+      }
+
+      function pedirDomicilio() {
+        const input = document.getElementById("direccion");
+        const direccion = input.value.trim();
+
+        const servicioSeleccionado = document.querySelector(
+          'input[name="service"]:checked'
+        ).value;
+
+        if (direccion === "") {
+          mostrarAvisoDomicilio();
+          return;
+        }
+
+        limpiarAvisoDomicilio();
+
+        const mensaje =
+          "Hola, quiero pedir un domicilio en Lavaseco EDUARTEX. " +
+          "Necesito el servicio de " +
+          servicioSeleccionado +
+          ". Mi dirección es: " +
+          direccion;
+
+        irWhatsApp(mensaje);
+      }
+
+      /* =====================================================
+       CARGAR SERVICIOS DEL JSON
+    ====================================================== */
+
+      const SERVICIOS_RESPALDO = {
+        servicios: [
+          {
+            nombre: "Lavado y secado",
+            descripcion:
+              "Lavamos y secamos tus prendas con agua tratada, detergentes premium y temperatura controlada para proteger cada fibra.",
+            icono: "🧺",
+            etiqueta: "Más popular",
+            imagen:
+              "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&w=700&q=80",
+            precioMin: 20000,
+            precioMax: 45000,
+            unidad: "carga",
+            unidadPlural: "cargas",
+          },
+          {
+            nombre: "Planchado profesional",
+            descripcion:
+              "Acabado impecable a vapor, sin brillos ni pliegues indeseados. Tus camisas y vestidos listos para colgar o doblar.",
+            icono: "👕",
+            etiqueta: "Acabado fino",
+            imagen:
+              "https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&fit=crop&w=700&q=80",
+            precioMin: 12000,
+            precioMax: 30000,
+            unidad: "prenda",
+            unidadPlural: "prendas",
+          },
+          {
+            nombre: "Lavaseco y prendas delicadas",
+            descripcion:
+              "Tratamiento especializado en seco para trajes, vestidos de fiesta, abrigos de lana, lino, seda y textiles sensibles.",
+            icono: "✨",
+            etiqueta: "Especializado",
+            imagen:
+              "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=700&q=80",
+            precioMin: 25000,
+            precioMax: 55000,
+            unidad: "prenda",
+            unidadPlural: "prendas",
+          },
+          {
+            nombre: "Cuidado de calzado",
+            descripcion:
+              "Limpieza profunda, desinfección y restauración estética para tus tenis, sneakers y zapatos cotidianos.",
+            icono: "👟",
+            etiqueta: "Renovación",
+            imagen:
+              "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80",
+            precioMin: 15000,
+            precioMax: 35000,
+            unidad: "par",
+            unidadPlural: "pares",
+          },
+          {
+            nombre: "Hogar y lencería",
+            descripcion:
+              "Lavado higiénico de edredones, cobijas, sábanas, toallas, cortinas y mantelería con secado antiácaros.",
+            icono: "🛏️",
+            etiqueta: "Gran formato",
+            imagen:
+              "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=700&q=80",
+            precioMin: 30000,
+            precioMax: 60000,
+            unidad: "juego",
+            unidadPlural: "juegos",
+          },
+          {
+            nombre: "Desmanchado focalizado",
+            descripcion:
+              "Evaluación técnica de manchas complejas (grasa, vino, tinta, café) con removedores enzimáticos de alta eficacia.",
+            icono: "🧼",
+            etiqueta: "Tratamiento experto",
+            imagen:
+              "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=700&q=80",
+            precioMin: 10000,
+            precioMax: 25000,
+            unidad: "prenda",
+            unidadPlural: "prendas",
+          },
+        ],
+      };
+
+      function renderServicios(data) {
+        const container = document.getElementById("services-container");
+
+        if (!container || !data || !data.servicios) return;
+
+        container.innerHTML = "";
+
+        data.servicios.forEach((servicio) => {
+          const card = document.createElement("div");
+
+          card.className = "service-photo-card";
+
+          card.innerHTML = `
+
+            <div class="photo-card-badge">
+              ${servicio.etiqueta}
+            </div>
+
+            <div class="photo-wrapper">
+              <img
+                src="${servicio.imagen}"
+                alt="${servicio.nombre}"
+                class="service-photo"
+                loading="lazy"
+              />
+            </div>
+
+            <h4>
+              ${servicio.nombre}
+            </h4>
+
+            <p class="service-photo-desc">
+              ${servicio.descripcion}
+            </p>
+
+            <button
+              class="cotizar-button service-photo-button"
+              onclick="solicitarServicio('${servicio.nombre}')"
+            >
+              Solicitar servicio
+            </button>
+
+          `;
+
+          container.appendChild(card);
+        });
+      }
+
+      /* =====================================================
+       SIMULADOR DE PRECIOS (catálogo + carrito)
+    ====================================================== */
+
+      const PRODUCTOS_RESPALDO = [
+        { cod: 1, producto: "Camisa", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Ropa" },
+        { cod: 2, producto: "Camiseta", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Ropa" },
+        { cod: 3, producto: "Pantalon", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Ropa" },
+        { cod: 4, producto: "Jeans", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Ropa" },
+        { cod: 5, producto: "Vestido Hombre 2 Piezas", pzs: 2, dias: 1, precio: 12000, dcto: 0, categoria: "Vestidos" },
+        { cod: 6, producto: "Corbata", pzs: 1, dias: 1, precio: 2000, dcto: 0, categoria: "Accesorios" },
+        { cod: 7, producto: "Corbata Cortesia", pzs: 1, dias: 1, precio: 0, dcto: 0, categoria: "Accesorios" },
+        { cod: 8, producto: "Chaqueta Sencilla", pzs: 1, dias: 1, precio: 8000, dcto: 0, categoria: "Chaquetas" },
+        { cod: 9, producto: "Chaqueta Acolchada", pzs: 1, dias: 1, precio: 10000, dcto: 0, categoria: "Chaquetas" },
+        { cod: 10, producto: "Chaqueta De Plumas", pzs: 1, dias: 2, precio: 12000, dcto: 0, categoria: "Chaquetas" },
+        { cod: 11, producto: "Chaqueta De Cuero Solo Lavado", pzs: 1, dias: 4, precio: 35000, dcto: 0, categoria: "Chaquetas" },
+        { cod: 12, producto: "Chaqueta De Cuero Lavado Y Renovación", pzs: 1, dias: 8, precio: 70000, dcto: 0, categoria: "Chaquetas" },
+        { cod: 13, producto: "Chaqueta De Gamuza", pzs: 1, dias: 4, precio: 35000, dcto: 0, categoria: "Chaquetas" },
+        { cod: 14, producto: "Chaqueta De Cuerina", pzs: 1, dias: 2, precio: 12000, dcto: 0, categoria: "Chaquetas" },
+        { cod: 15, producto: "Gaban", pzs: 1, dias: 1, precio: 8500, dcto: 0, categoria: "Chaquetas" },
+        { cod: 16, producto: "Abrigo", pzs: 1, dias: 1, precio: 11000, dcto: 0, categoria: "Chaquetas" },
+        { cod: 17, producto: "Saco", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Ropa" },
+        { cod: 18, producto: "Sueter", pzs: 1, dias: 1, precio: 6500, dcto: 0, categoria: "Ropa" },
+        { cod: 19, producto: "Buso", pzs: 1, dias: 1, precio: 7000, dcto: 0, categoria: "Ropa" },
+        { cod: 20, producto: "Chaleco Sencillo", pzs: 1, dias: 1, precio: 6500, dcto: 0, categoria: "Ropa" },
+        { cod: 21, producto: "Chaleco Plumas", pzs: 1, dias: 1, precio: 8000, dcto: 0, categoria: "Ropa" },
+        { cod: 22, producto: "Blusa", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Ropa" },
+        { cod: 23, producto: "Falda", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Ropa" },
+        { cod: 24, producto: "Jardinera", pzs: 1, dias: 1, precio: 6500, dcto: 0, categoria: "Ropa" },
+        { cod: 25, producto: "Bata Dama", pzs: 1, dias: 1, precio: 9000, dcto: 0, categoria: "Vestidos" },
+        { cod: 26, producto: "Conjunto Dama", pzs: 2, dias: 1, precio: 12000, dcto: 0, categoria: "Vestidos" },
+        { cod: 27, producto: "Enterizo", pzs: 1, dias: 1, precio: 9000, dcto: 0, categoria: "Vestidos" },
+        { cod: 28, producto: "Sudadera", pzs: 2, dias: 1, precio: 14000, dcto: 0, categoria: "Ropa" },
+        { cod: 29, producto: "Chal", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Accesorios" },
+        { cod: 30, producto: "Bufanda", pzs: 1, dias: 1, precio: 4000, dcto: 0, categoria: "Accesorios" },
+        { cod: 31, producto: "Ruana", pzs: 1, dias: 2, precio: 11000, dcto: 0, categoria: "Ropa" },
+        { cod: 32, producto: "Bermuda", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Ropa" },
+        { cod: 33, producto: "Botas", pzs: 1, dias: 2, precio: 15000, dcto: 0, categoria: "Calzado" },
+        { cod: 34, producto: "Tenis", pzs: 1, dias: 2, precio: 13000, dcto: 0, categoria: "Calzado" },
+        { cod: 35, producto: "Gorra", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Accesorios" },
+        { cod: 36, producto: "Bolso Dama", pzs: 1, dias: 2, precio: 9000, dcto: 0, categoria: "Accesorios" },
+        { cod: 37, producto: "Morral", pzs: 1, dias: 2, precio: 12000, dcto: 0, categoria: "Accesorios" },
+        { cod: 38, producto: "Overol", pzs: 1, dias: 2, precio: 18000, dcto: 0, categoria: "Ropa" },
+        { cod: 39, producto: "Almohada Sencilla", pzs: 1, dias: 4, precio: 12000, dcto: 0, categoria: "Hogar" },
+        { cod: 40, producto: "Almohada De Plumas", pzs: 1, dias: 4, precio: 15000, dcto: 0, categoria: "Hogar" },
+        { cod: 41, producto: "Cubrelecho Sencillo", pzs: 1, dias: 4, precio: 22000, dcto: 0, categoria: "Hogar" },
+        { cod: 42, producto: "Cubrelecho Doble", pzs: 1, dias: 4, precio: 26000, dcto: 0, categoria: "Hogar" },
+        { cod: 43, producto: "Cubrelecho Queen", pzs: 1, dias: 4, precio: 29000, dcto: 0, categoria: "Hogar" },
+        { cod: 44, producto: "Cubrelecho Plumas Sencillo", pzs: 1, dias: 4, precio: 32000, dcto: 0, categoria: "Hogar" },
+        { cod: 45, producto: "Cubrelecho Plumas Doble", pzs: 1, dias: 4, precio: 42000, dcto: 0, categoria: "Hogar" },
+        { cod: 46, producto: "Cubrelecho Plumas Queen", pzs: 1, dias: 4, precio: 52000, dcto: 0, categoria: "Hogar" },
+        { cod: 47, producto: "Duvet", pzs: 1, dias: 4, precio: 12000, dcto: 0, categoria: "Hogar" },
+        { cod: 48, producto: "Juego Sabanas Sencillo", pzs: 1, dias: 1, precio: 12000, dcto: 0, categoria: "Hogar" },
+        { cod: 49, producto: "Juego Sabanas Doble", pzs: 1, dias: 1, precio: 12000, dcto: 0, categoria: "Hogar" },
+        { cod: 50, producto: "Funda Individual", pzs: 1, dias: 1, precio: 0, dcto: 0, categoria: "Hogar" },
+        { cod: 51, producto: "Funda Cortesia", pzs: 1, dias: 1, precio: 0, dcto: 0, categoria: "Hogar" },
+        { cod: 52, producto: "Cobija Sencilla", pzs: 1, dias: 4, precio: 22000, dcto: 0, categoria: "Hogar" },
+        { cod: 53, producto: "Cobija Doble", pzs: 1, dias: 4, precio: 23000, dcto: 0, categoria: "Hogar" },
+        { cod: 54, producto: "Hamaca", pzs: 1, dias: 4, precio: 15000, dcto: 0, categoria: "Hogar" },
+        { cod: 55, producto: "Cojin Relleno", pzs: 1, dias: 4, precio: 6000, dcto: 0, categoria: "Hogar" },
+        { cod: 56, producto: "Mantel", pzs: 1, dias: 1, precio: 10000, dcto: 0, categoria: "Hogar" },
+        { cod: 57, producto: "Toalla", pzs: 1, dias: 1, precio: 6000, dcto: 0, categoria: "Hogar" },
+        { cod: 58, producto: "Cortina Velo Prense", pzs: 1, dias: 5, precio: 1400, dcto: 0, categoria: "Hogar" },
+        { cod: 59, producto: "Cortina Pesada Prense", pzs: 1, dias: 5, precio: 1600, dcto: 0, categoria: "Hogar" },
+        { cod: 60, producto: "Tapete Mt Cuadrado", pzs: 1, dias: 15, precio: 26000, dcto: 0, categoria: "Hogar" },
+        { cod: 61, producto: "Muñeco", pzs: 1, dias: 3, precio: 13000, dcto: 0, categoria: "Especiales" },
+        { cod: 62, producto: "Vestido Novia", pzs: 1, dias: 5, precio: 30000, dcto: 0, categoria: "Especiales" },
+        { cod: 63, producto: "Vestido Quinceañera", pzs: 1, dias: 5, precio: 15000, dcto: 0, categoria: "Especiales" },
+        { cod: 64, producto: "Vestido Fiesta Corto", pzs: 1, dias: 5, precio: 15000, dcto: 0, categoria: "Especiales" },
+        { cod: 65, producto: "Vestido Fiesta Largo", pzs: 1, dias: 5, precio: 20000, dcto: 0, categoria: "Especiales" },
+        { cod: 66, producto: "Vestido Primera Comunion", pzs: 1, dias: 5, precio: 20000, dcto: 0, categoria: "Especiales" },
+        { cod: 67, producto: "Tintura Prenda", pzs: 1, dias: 8, precio: 20000, dcto: 0, categoria: "Especiales" },
+        { cod: 68, producto: "Tintura Chaqueta", pzs: 1, dias: 8, precio: 20000, dcto: 0, categoria: "Especiales" },
+        { cod: 69, producto: "Solo Plancha", pzs: 1, dias: 1, precio: 4000, dcto: 0, categoria: "Especiales" },
+        { cod: 70, producto: "Forros De Carro Unidad", pzs: 1, dias: 2, precio: 7000, dcto: 0, categoria: "Hogar" },
+        { cod: 71, producto: "Libra De Ropa", pzs: 1, dias: 1, precio: 9000, dcto: 0, categoria: "Básicos" },
+        { cod: 72, producto: "Boxer", pzs: 1, dias: 1, precio: 3000, dcto: 0, categoria: "Básicos" },
+        { cod: 73, producto: "Par Medias", pzs: 2, dias: 1, precio: 3000, dcto: 0, categoria: "Básicos" },
+        { cod: 74, producto: "Chaqueta Impermeable", pzs: 1, dias: 1, precio: 9000, dcto: 0, categoria: "Chaquetas" },
+      ];
+
+      const simulador = {
+        productos: [],
+        carrito: {},
+        filtro: "",
+        categoria: "Todas",
+      };
+
+      function formatoCOP(valor) {
+        return new Intl.NumberFormat("es-CO", {
+          style: "currency",
+          currency: "COP",
+          maximumFractionDigits: 0,
+        }).format(valor);
+      }
+
+      function normalizar(texto) {
+        return String(texto)
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "");
+      }
+
+      function precioFinal(producto) {
+        const precio = Number(producto.precio) || 0;
+        const dcto = Number(producto.dcto) || 0;
+        return Math.round(precio * (1 - dcto / 100));
+      }
+
+      function buscarProducto(cod) {
+        return simulador.productos.find(function (p) {
+          return p.cod === cod;
+        });
+      }
+
+      function iniciarSimulador(data) {
+        const contenedor = document.getElementById("sim-catalogo");
+        const productos = data && data.productos;
+
+        if (!contenedor || !productos || !productos.length) return;
+
+        simulador.productos = productos;
+        simulador.carrito = {};
+        simulador.filtro = "";
+        simulador.categoria = "Todas";
+
+        renderCategorias();
+        renderCatalogo();
+        renderCarrito();
+
+        const buscador = document.getElementById("sim-buscar");
+        if (buscador) {
+          buscador.addEventListener("input", function () {
+            simulador.filtro = buscador.value;
+            renderCatalogo();
+          });
+        }
+      }
+
+      function renderCategorias() {
+        const contenedor = document.getElementById("sim-categorias");
+        if (!contenedor) return;
+
+        const categorias = ["Todas"];
+
+        simulador.productos.forEach(function (producto) {
+          if (
+            producto.categoria &&
+            categorias.indexOf(producto.categoria) === -1
+          ) {
+            categorias.push(producto.categoria);
+          }
+        });
+
+        contenedor.innerHTML = "";
+
+        categorias.forEach(function (categoria) {
+          const chip = document.createElement("button");
+          chip.type = "button";
+          chip.className =
+            "sim-chip" +
+            (categoria === simulador.categoria ? " is-active" : "");
+          chip.textContent = categoria;
+
+          chip.addEventListener("click", function () {
+            simulador.categoria = categoria;
+            renderCategorias();
+            renderCatalogo();
+          });
+
+          contenedor.appendChild(chip);
+        });
+      }
+
+      function renderCatalogo() {
+        const contenedor = document.getElementById("sim-catalogo");
+        if (!contenedor) return;
+
+        const filtro = normalizar(simulador.filtro.trim());
+
+        const lista = simulador.productos.filter(function (producto) {
+          const coincideCategoria =
+            simulador.categoria === "Todas" ||
+            producto.categoria === simulador.categoria;
+
+          const coincideTexto =
+            !filtro || normalizar(producto.producto).indexOf(filtro) !== -1;
+
+          return coincideCategoria && coincideTexto;
+        });
+
+        contenedor.innerHTML = "";
+
+        if (!lista.length) {
+          contenedor.innerHTML =
+            '<p class="sim-vacio">No encontramos prendas con esa búsqueda.</p>';
+          return;
+        }
+
+        lista.forEach(function (producto) {
+          const precio = precioFinal(producto);
+          const boton = document.createElement("button");
+
+          boton.type = "button";
+          boton.className = "sim-item";
+          boton.innerHTML =
+            '<span class="sim-item-info">' +
+            '<span class="sim-item-name">' +
+            producto.producto +
+            "</span>" +
+            '<span class="sim-item-meta">' +
+            producto.pzs +
+            (producto.pzs > 1 ? " pzs" : " pza") +
+            " · " +
+            producto.dias +
+            (producto.dias > 1 ? " días" : " día") +
+            "</span>" +
+            "</span>" +
+            '<span class="sim-item-price">' +
+            (precio === 0 ? "Cortesía" : formatoCOP(precio)) +
+            "</span>";
+
+          boton.addEventListener("click", function () {
+            agregarAlCarrito(producto.cod);
+          });
+
+          contenedor.appendChild(boton);
+        });
+      }
+
+      function agregarAlCarrito(cod) {
+        simulador.carrito[cod] = (simulador.carrito[cod] || 0) + 1;
+        renderCarrito();
+      }
+
+      function ocultarAvisoSimulador() {
+        const aviso = document.getElementById("sim-aviso");
+        if (aviso) aviso.hidden = true;
+      }
+
+      function mostrarAvisoSimulador() {
+        const aviso = document.getElementById("sim-aviso");
+        const cta = document.getElementById("sim-cta");
+
+        if (aviso) aviso.hidden = false;
+
+        if (cta) {
+          cta.classList.remove("is-invalid");
+          void cta.offsetWidth;
+          cta.classList.add("is-invalid");
+          cta.addEventListener(
+            "animationend",
+            function () {
+              cta.classList.remove("is-invalid");
+            },
+            { once: true }
+          );
+        }
+      }
+
+      function cambiarCantidad(cod, delta) {
+        const actual = simulador.carrito[cod] || 0;
+        const nuevo = actual + delta;
+
+        if (nuevo <= 0) {
+          delete simulador.carrito[cod];
+        } else {
+          simulador.carrito[cod] = nuevo;
+        }
+
+        renderCarrito();
+      }
+
+      function renderCarrito() {
+        const contenedor = document.getElementById("sim-carrito");
+        const totalEl = document.getElementById("sim-total");
+        const detalleEl = document.getElementById("sim-detalle");
+        const breakdownEl = document.getElementById("sim-breakdown");
+        const ctaEl = document.getElementById("sim-cta");
+
+        if (!contenedor) return;
+
+        const codigos = Object.keys(simulador.carrito);
+
+        if (codigos.length) ocultarAvisoSimulador();
+
+        if (!codigos.length) {
+          contenedor.innerHTML =
+            '<p class="sim-vacio">Aún no has agregado prendas. Toca una prenda del catálogo para cotizar.</p>';
+          if (totalEl) totalEl.textContent = formatoCOP(0);
+          if (detalleEl) detalleEl.textContent = "Entrega estimada: — días";
+          if (breakdownEl) breakdownEl.innerHTML = "";
+          if (ctaEl) ctaEl.textContent = "Solicitar cotización en el chat";
+          return;
+        }
+
+        let total = 0;
+        let piezas = 0;
+        let maxDias = 0;
+        const filas = [];
+
+        codigos.forEach(function (cod) {
+          const producto = buscarProducto(Number(cod));
+          if (!producto) return;
+
+          const cantidad = simulador.carrito[cod];
+          const unitario = precioFinal(producto);
+          const subtotal = unitario * cantidad;
+
+          total += subtotal;
+          piezas += cantidad;
+
+          if (producto.dias > maxDias) maxDias = producto.dias;
+
+          filas.push(
+            '<div class="sim-cart-row">' +
+              '<div class="sim-cart-info">' +
+              '<span class="sim-cart-name">' +
+              producto.producto +
+              "</span>" +
+              '<span class="sim-cart-meta">' +
+              (unitario === 0 ? "Cortesía" : formatoCOP(unitario) + " c/u") +
+              "</span>" +
+              "</div>" +
+              '<div class="sim-cart-qty">' +
+              '<button type="button" aria-label="Quitar una unidad" data-cod="' +
+              producto.cod +
+              '" data-delta="-1">−</button>' +
+              "<span>" +
+              cantidad +
+              "</span>" +
+              '<button type="button" aria-label="Agregar una unidad" data-cod="' +
+              producto.cod +
+              '" data-delta="1">+</button>' +
+              "</div>" +
+              '<span class="sim-cart-sub">' +
+              formatoCOP(subtotal) +
+              "</span>" +
+              "</div>"
+          );
+        });
+
+        contenedor.innerHTML = filas.join("");
+
+        contenedor
+          .querySelectorAll(".sim-cart-qty button")
+          .forEach(function (boton) {
+            boton.addEventListener("click", function () {
+              cambiarCantidad(
+                Number(boton.dataset.cod),
+                Number(boton.dataset.delta)
+              );
+            });
+          });
+
+        if (totalEl) totalEl.textContent = formatoCOP(total);
+
+        if (detalleEl) {
+          detalleEl.textContent =
+            piezas +
+            (piezas === 1 ? " prenda · entrega estimada " : " prendas · entrega estimada ") +
+            maxDias +
+            (maxDias === 1 ? " día" : " días");
+        }
+
+        if (breakdownEl) {
+          breakdownEl.innerHTML =
+            "<div><span>Prendas en el pedido</span><strong>" +
+            piezas +
+            "</strong></div>" +
+            "<div><span>Entrega estimada</span><strong>" +
+            maxDias +
+            (maxDias === 1 ? " día" : " días") +
+            "</strong></div>";
+        }
+
+        if (ctaEl) {
+          ctaEl.textContent =
+            "Enviar " +
+            piezas +
+            (piezas === 1 ? " prenda al chat" : " prendas al chat");
+        }
+      }
+
+      function solicitarCotizacion(event) {
+        if (event) event.preventDefault();
+
+        const codigos = Object.keys(simulador.carrito);
+
+        if (!codigos.length) {
+          mostrarAvisoSimulador();
+          return;
+        }
+
+        const lineas = [];
+
+        codigos.forEach(function (cod) {
+          const producto = buscarProducto(Number(cod));
+          if (!producto) return;
+
+          const cantidad = simulador.carrito[cod];
+          lineas.push("• " + cantidad + "x " + producto.producto);
+        });
+
+        const mensaje =
+          "Hola! 👋 Estoy interesado(a) en solicitar una cotización de los siguientes productos:\n\n" +
+          "📋 Productos seleccionados:\n" +
+          lineas.join("\n") +
+          "\n\nAgradezco que me compartan la disponibilidad.";
+
+        if (typeof window.enviarPedidoSimulado === "function") {
+          window.enviarPedidoSimulado(mensaje);
+        } else {
+          irWhatsApp(mensaje);
+        }
+      }
+
+      fetch("data.json")
+        .then((response) => {
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          return response.json();
+        })
+
+        .then((data) => {
+          renderServicios(data);
+          iniciarSimulador(data);
+        })
+
+        .catch((error) => {
+          console.warn(
+            "No se pudo cargar data.json, se usan los datos de respaldo:",
+            error
+          );
+          renderServicios(SERVICIOS_RESPALDO);
+          iniciarSimulador({ productos: PRODUCTOS_RESPALDO });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,483 @@
+:root {
+  --wa-header: #075e54;
+  --wa-green: #25d366;
+  --wa-send: #00a884;
+  --wa-bg: #efeae2;
+  --wa-out: #d9fdd3;
+  --wa-in: #ffffff;
+  --wa-text: #111b21;
+  --wa-muted: #667781;
+  --wa-check: #53bdeb;
+}
+
+.eduar-launcher {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 2000;
+
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 50%;
+
+  background: var(--wa-green);
+  color: #fff;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 24px rgba(7, 94, 84, 0.4);
+  transition: transform 0.2s;
+}
+
+.eduar-launcher:hover {
+  transform: scale(1.07);
+}
+
+.eduar-launcher:focus-visible,
+.eduar-chat button:focus-visible,
+.eduar-chat input:focus-visible {
+  outline: 3px solid #164bdc;
+  outline-offset: 2px;
+}
+
+.eduar-launcher svg {
+  width: 34px;
+  height: 34px;
+  fill: currentColor;
+}
+
+.eduar-launcher::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 50%;
+  border: 3px solid var(--wa-green);
+  animation: eduar-pulse 2.4s ease-out 3;
+  pointer-events: none;
+}
+
+@keyframes eduar-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.eduar-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  z-index: 2;
+
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 11px;
+  border: 2px solid #ffffff;
+
+  background: #e53935;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.eduar-badge[hidden] {
+  display: none;
+}
+
+.eduar-tip {
+  position: fixed;
+  right: 100px;
+  bottom: 34px;
+  z-index: 2000;
+
+  max-width: 230px;
+  padding: 12px 16px;
+  border-radius: 14px 14px 2px 14px;
+
+  background: #fff;
+  color: var(--wa-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+
+  box-shadow: 0 8px 24px rgba(16, 25, 54, 0.18);
+  cursor: pointer;
+}
+
+.eduar-tip[hidden] {
+  display: none;
+}
+
+.eduar-chat {
+  position: fixed;
+  right: 22px;
+  bottom: 100px;
+  z-index: 2001;
+
+  width: 380px;
+  height: 600px;
+  max-height: calc(100vh - 120px);
+
+  display: none;
+  flex-direction: column;
+
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--wa-bg);
+  font-family: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", sans-serif;
+
+  box-shadow: 0 24px 60px rgba(10, 20, 40, 0.35);
+}
+
+.eduar-chat.open {
+  display: flex;
+  animation: eduar-open 0.22s ease-out;
+}
+
+@keyframes eduar-open {
+  from {
+    transform: translateY(16px) scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.eduar-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+
+  background: var(--wa-header);
+  color: #fff;
+}
+
+.eduar-avatar {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+
+  background: #fff;
+  font-size: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eduar-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.eduar-info strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.eduar-info span {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.eduar-close {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.eduar-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.eduar-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 14px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  background-color: var(--wa-bg);
+  background-image: radial-gradient(
+    rgba(7, 94, 84, 0.06) 1.2px,
+    transparent 1.2px
+  );
+  background-size: 18px 18px;
+}
+
+.eduar-day {
+  align-self: center;
+  margin-bottom: 6px;
+  padding: 5px 12px;
+  border-radius: 8px;
+
+  background: #fff;
+  color: var(--wa-muted);
+  font-size: 12px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.eduar-msg {
+  max-width: 82%;
+  padding: 8px 10px 6px;
+  border-radius: 10px;
+
+  color: var(--wa-text);
+  font-size: 14px;
+  line-height: 1.45;
+  word-wrap: break-word;
+
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  animation: eduar-in 0.18s ease-out;
+}
+
+@keyframes eduar-in {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.eduar-msg.bot {
+  align-self: flex-start;
+  background: var(--wa-in);
+  border-top-left-radius: 2px;
+}
+
+.eduar-msg.user {
+  align-self: flex-end;
+  background: var(--wa-out);
+  border-top-right-radius: 2px;
+}
+
+.eduar-msg.eduar-pedido {
+  white-space: pre-line;
+}
+
+.eduar-time {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3px;
+  margin-top: 2px;
+
+  color: var(--wa-muted);
+  font-size: 11px;
+}
+
+.eduar-time .check {
+  color: var(--wa-check);
+  font-size: 13px;
+  letter-spacing: -3px;
+}
+
+.eduar-typing {
+  align-self: flex-start;
+  display: flex;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border-top-left-radius: 2px;
+
+  background: var(--wa-in);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.eduar-typing i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+
+  background: #9aa5ab;
+  animation: eduar-dot 1.2s infinite;
+}
+
+.eduar-typing i:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.eduar-typing i:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes eduar-dot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+.eduar-quick {
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 92%;
+  margin-top: 2px;
+}
+
+.eduar-quick button {
+  padding: 8px 14px;
+  border: 1px solid var(--wa-send);
+  border-radius: 18px;
+
+  background: #fff;
+  color: var(--wa-send);
+  font-family: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: background 0.15s, color 0.15s;
+}
+
+.eduar-quick button:hover {
+  background: var(--wa-send);
+  color: #fff;
+}
+
+.eduar-wa-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 11px 14px;
+  border-radius: 22px;
+
+  background: var(--wa-green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.eduar-wa-link:hover {
+  background: #1ebe5b;
+}
+
+.eduar-wa-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.eduar-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+
+  background: #f0f2f5;
+}
+
+.eduar-input input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 22px;
+
+  background: #fff;
+  color: var(--wa-text);
+  font-family: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", sans-serif;
+  font-size: 14px;
+}
+
+.eduar-send {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+
+  background: var(--wa-send);
+  color: #fff;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eduar-send:hover {
+  background: #008f6f;
+}
+
+.eduar-send svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+@media (max-width: 600px) {
+  .eduar-launcher {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .eduar-tip {
+    right: 90px;
+    bottom: 26px;
+  }
+
+  .eduar-chat {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eduar-launcher::after,
+  .eduar-chat.open,
+  .eduar-msg {
+    animation: none;
+  }
+}
